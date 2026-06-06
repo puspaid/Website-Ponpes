@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pondok Pesantren Darul Musthofa – Trawas, Mojokerto</title>
+  <meta name="description" content="Membentuk Generasi Qur'ani, Berwawasan Global dan Berakhlak Mulia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:#0A2342;--navy-mid:#1E3A8A;--navy-light:#2563EB;
+      --baby-blue:#E0F2FE;--baby-blue-mid:#BAE6FD;--sky:#7DD3FC;
+      --white:#FFFFFF;--off-white:#F8FAFF;
+      --text-dark:#0A2342;--text-body:#334155;--text-muted:#64748B;
+      --gold:#D4A017;--gold-light:#F9E4A0;--border:#DBEAFE;--green:#10B981;
+      --shadow-sm:0 2px 8px rgba(10,35,66,.06);--shadow-md:0 8px 32px rgba(10,35,66,.10);
+      --shadow-lg:0 20px 60px rgba(10,35,66,.14);--radius:16px;--radius-sm:8px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--text-body);overflow-x:hidden}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,35,66,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+    .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .nav-logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--gold),#F0C040);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:20px;color:var(--navy);font-weight:700;box-shadow:0 2px 12px rgba(212,160,23,.35)}
+    .nav-title strong{display:block;font-size:.9rem;font-weight:700;color:white}
+    .nav-title span{display:block;font-size:.68rem;color:var(--sky)}
+    .nav-links{display:flex;gap:6px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.82rem;font-weight:500;padding:7px 14px;border-radius:8px;transition:all .2s}
+    .nav-links a:hover{background:rgba(255,255,255,.1);color:white}
+    .nav-cta{background:var(--gold)!important;color:var(--navy)!important;font-weight:700!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{display:block;width:24px;height:2px;background:white;border-radius:2px;transition:all .3s}
+    .mobile-nav{display:none;position:fixed;top:70px;left:0;right:0;background:var(--navy);z-index:99;padding:20px 5%;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column;gap:4px}
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.9rem;font-weight:500;padding:12px 16px;border-radius:8px;transition:background .2s}
+    .mobile-nav a:hover{background:rgba(255,255,255,.08)}
+
+    /* HERO */
+    #hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--navy)}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(30,58,138,.7) 0%,transparent 70%),radial-gradient(ellipse 50% 50% at 10% 90%,rgba(212,160,23,.1) 0%,transparent 60%),linear-gradient(160deg,#0A2342 0%,#0F2D5A 50%,#071A35 100%)}
+    .hero-pattern{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M30 0l6 6-6 6-6-6 6-6zm0 48l6 6-6 6-6-6 6-6zM0 30l6-6 6 6-6 6-6-6zm48 0l6-6 6 6-6 6-6-6zM30 12l9 9-9 9-9-9 9-9zm0 24l9 9-9 9-9-9 9-9z'/%3E%3C/g%3E%3C/svg%3E")}
+    .hero-deco{position:absolute;border-radius:50%;pointer-events:none}
+    .hd1{width:500px;height:500px;right:-100px;top:-100px;background:radial-gradient(circle,rgba(37,99,235,.15) 0%,transparent 70%)}
+    .hd2{width:300px;height:300px;left:5%;bottom:10%;background:radial-gradient(circle,rgba(212,160,23,.08) 0%,transparent 70%)}
+    .hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 5% 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .hero-text{animation:fadeUp .9s ease both}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.4);color:var(--gold);padding:6px 16px;border-radius:40px;font-size:.75rem;font-weight:600;letter-spacing:.5px;margin-bottom:24px;text-transform:uppercase}
+    .hero-badge::before{content:'✦';font-size:.65rem}
+    .hero-arabic{font-family:'Amiri',serif;font-size:clamp(1.4rem,3vw,2rem);color:var(--gold);opacity:.9;margin-bottom:16px;text-align:right;direction:rtl;line-height:1.8}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:white;line-height:1.15;margin-bottom:20px}
+    .hero-title em{color:var(--sky);font-style:normal}
+    .hero-desc{color:rgba(255,255,255,.7);font-size:1rem;line-height:1.75;margin-bottom:36px;max-width:480px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-primary{background:var(--gold);color:var(--navy);padding:14px 28px;border-radius:10px;font-weight:700;font-size:.9rem;text-decoration:none;border:none;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(212,160,23,.4)}
+    .btn-primary:hover{background:#F0C040;transform:translateY(-2px)}
+    .btn-secondary{background:rgba(255,255,255,.08);color:white;padding:14px 28px;border-radius:10px;font-weight:600;font-size:.9rem;border:1.5px solid rgba(255,255,255,.25);text-decoration:none;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
+    .btn-secondary:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+    .hero-stats{display:flex;gap:28px;margin-top:48px;padding-top:36px;border-top:1px solid rgba(255,255,255,.1)}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:white;line-height:1}
+    .stat-num span{color:var(--gold)}
+    .stat-label{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:4px;font-weight:500}
+    .hero-card-wrap{animation:fadeUp 1s .2s ease both}
+    .hero-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:24px;overflow:hidden;backdrop-filter:blur(10px)}
+    .hero-card-visual{width:100%;height:220px;background:linear-gradient(135deg,#0F2D5A,#1E3A8A,#0A2342);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .hero-card-visual-bg{position:absolute;inset:0;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0l4 4-4 4-4-4 4-4zm0 32l4 4-4 4-4-4 4-4zM0 20l4-4 4 4-4 4-4-4zm32 0l4-4 4 4-4 4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E")}
+    .arabic-large{font-family:'Amiri',serif;font-size:3.5rem;color:var(--gold);opacity:.9;line-height:1;z-index:1;text-align:center}
+    .arabic-sub{font-family:'Amiri',serif;font-size:1rem;color:rgba(255,255,255,.5);margin-top:8px;text-align:center;z-index:1}
+    .hcv-inner{z-index:1;text-align:center}
+    .hero-card-body{padding:24px}
+    .hero-card-body .label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--sky);font-weight:600;margin-bottom:8px}
+    .hero-card-body h3{color:white;font-size:1rem;font-weight:600;margin-bottom:16px}
+    .progress-row{display:flex;flex-direction:column;gap:10px}
+    .progress-label{display:flex;justify-content:space-between;font-size:.72rem;color:rgba(255,255,255,.65);margin-bottom:5px}
+    .progress-bar{background:rgba(255,255,255,.1);border-radius:40px;height:5px;overflow:hidden}
+    .progress-fill{height:100%;border-radius:40px;background:linear-gradient(90deg,var(--sky),var(--gold))}
+
+    /* SHARED */
+    section{padding:90px 5%}
+    .container{max-width:1200px;margin:0 auto}
+    .section-label{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--navy-mid);margin-bottom:14px}
+    .section-label::before{content:'';display:block;width:24px;height:2px;background:var(--gold);border-radius:2px}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:16px}
+    .section-desc{color:var(--text-muted);font-size:1rem;line-height:1.75;max-width:560px}
+
+    /* SAMBUTAN */
+    #sambutan{background:var(--off-white)}
+    .sambutan-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:center}
+    .sambutan-img-wrap{position:relative}
+    .sambutan-img{width:100%;aspect-ratio:3/4;border-radius:20px;background:linear-gradient(160deg,#1E3A8A,#0A2342);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);overflow:hidden;position:relative}
+    .sambutan-img-symbol{font-family:'Amiri',serif;font-size:8rem;color:rgba(212,160,23,.18);user-select:none}
+    .sambutan-img-overlay{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 0l5 5-5 5-5-5 5-5zm0 40l5 5-5 5-5-5 5-5zM0 25l5-5 5 5-5 5-5-5zm40 0l5-5 5 5-5 5-5-5z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E")}
+    .sambutan-badge{position:absolute;bottom:24px;left:-20px;background:var(--navy);color:white;padding:16px 20px;border-radius:14px;box-shadow:var(--shadow-md)}
+    .sambutan-badge strong{display:block;font-size:.9rem}
+    .sambutan-badge span{font-size:.72rem;color:var(--sky)}
+    .sambutan-quote{font-family:'Amiri',serif;direction:rtl;font-size:1.5rem;color:var(--navy);line-height:1.9;border-right:4px solid var(--gold);padding-right:20px;margin-bottom:24px}
+    .sambutan-text{font-size:1rem;line-height:1.8;color:var(--text-body);margin-bottom:20px}
+    .sambutan-name strong{display:block;font-size:1rem;color:var(--navy);font-weight:700}
+    .sambutan-name span{font-size:.8rem;color:var(--text-muted)}
+
+    /* KEUNGGULAN */
+    #keunggulan{background:white}
+    .keunggulan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+    .keunggulan-card{background:var(--off-white);border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;transition:all .3s;cursor:default}
+    .keunggulan-card:hover{background:var(--navy);border-color:var(--navy);transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+    .keunggulan-card:hover .keunggulan-icon{background:rgba(255,255,255,.15)}
+    .keunggulan-card:hover h3{color:white}
+    .keunggulan-card:hover p{color:rgba(255,255,255,.7)}
+    .keunggulan-icon{width:56px;height:56px;border-radius:14px;background:var(--baby-blue);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;transition:all .3s}
+    .keunggulan-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:10px;transition:color .3s}
+    .keunggulan-card p{font-size:.85rem;line-height:1.7;color:var(--text-muted);transition:color .3s}
+
+    /* PROFIL */
+    #profil{background:var(--off-white)}
+    .profil-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:60px;align-items:start}
+    .legalitas-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:24px}
+    .legalitas-list li{display:flex;align-items:center;gap:12px;background:white;padding:14px 18px;border-radius:10px;border:1px solid var(--border);font-size:.85rem;color:var(--text-body)}
+    .legalitas-list li .check{color:var(--green);font-size:1rem;flex-shrink:0}
+    .program-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+    .program-card{background:white;border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .25s}
+    .program-card:hover{border-color:var(--navy-mid);box-shadow:var(--shadow-sm)}
+    .program-card .tag{display:inline-block;background:var(--baby-blue);color:var(--navy-mid);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 10px;border-radius:40px;margin-bottom:10px}
+    .program-card h4{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+    .program-card p{font-size:.78rem;color:var(--text-muted);line-height:1.6}
+
+    /* JADWAL */
+    #jadwal{background:white}
+    .jadwal-tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap}
+    .jadwal-tab{padding:8px 20px;border-radius:8px;border:1.5px solid var(--border);font-size:.82rem;font-weight:600;cursor:pointer;background:white;color:var(--text-muted);transition:all .2s}
+    .jadwal-tab.active{background:var(--navy);color:white;border-color:var(--navy)}
+    .jadwal-tab:hover:not(.active){border-color:var(--navy);color:var(--navy)}
+    .jadwal-panel{display:none}
+    .jadwal-panel.active{display:block}
+    .jadwal-list{list-style:none;display:flex;flex-direction:column}
+    .jadwal-item{display:flex;gap:16px;padding:11px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+    .jadwal-item:last-child{border-bottom:none}
+    .jadwal-time{min-width:54px;font-size:.75rem;font-weight:700;color:var(--navy-mid);background:var(--baby-blue);padding:3px 7px;border-radius:6px;text-align:center;flex-shrink:0;margin-top:2px}
+    .jadwal-activity{font-size:.88rem;color:var(--text-body);line-height:1.5}
+    .rutinan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+    .rutinan-card{background:var(--off-white);border:1px solid var(--border);border-radius:12px;padding:18px}
+    .rutinan-day{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gold);margin-bottom:6px}
+    .rutinan-title{font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:4px}
+    .rutinan-time{font-size:.78rem;color:var(--text-muted)}
+
+    /* PPDB */
+    #ppdb{background:var(--navy);position:relative;overflow:hidden}
+    .ppdb-geo{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M30 0l6 6-6 6-6-6 6-6zm0 48l6 6-6 6-6-6 6-6zM0 30l6-6 6 6-6 6-6-6zm48 0l6-6 6 6-6 6-6-6zM30 12l9 9-9 9-9-9 9-9zm0 24l9 9-9 9-9-9 9-9z'/%3E%3C/g%3E%3C/svg%3E")}
+    #ppdb .section-label{color:var(--sky)}
+    #ppdb .section-label::before{background:var(--gold)}
+    #ppdb .section-title{color:white}
+    #ppdb .section-desc{color:rgba(255,255,255,.65)}
+    .gelombang-wrap{margin-top:40px;margin-bottom:8px}
+    .gelombang-title{font-size:.85rem;font-weight:700;color:white;margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px}
+    .gelombang-cards{display:flex;flex-direction:column;gap:12px;max-width:560px}
+    .gelombang-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .gelombang-card.open{border-color:rgba(212,160,23,.5);background:rgba(212,160,23,.08)}
+    .gelombang-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:40px}
+    .gelombang-badge.open{background:rgba(212,160,23,.25);color:var(--gold)}
+    .gelombang-badge.soon{background:rgba(255,255,255,.1);color:rgba(255,255,255,.5)}
+    .gelombang-label{color:white;font-size:.88rem;font-weight:600}
+    .gelombang-date{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:3px}
+    .ppdb-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px}
+    .alur-title{font-size:.85rem;font-weight:700;color:white;margin-bottom:28px;text-transform:uppercase;letter-spacing:.5px}
+    .timeline{display:flex;flex-direction:column}
+    .timeline-item{display:flex;gap:20px}
+    .timeline-left{display:flex;flex-direction:column;align-items:center}
+    .timeline-dot{width:40px;height:40px;border-radius:50%;flex-shrink:0;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:white;transition:all .3s}
+    .timeline-item.active .timeline-dot{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+    .timeline-line{width:2px;flex:1;min-height:24px;background:rgba(255,255,255,.1);margin:4px 0}
+    .timeline-item:last-child .timeline-line{display:none}
+    .timeline-content{padding-bottom:28px}
+    .timeline-content h4{color:white;font-size:.9rem;font-weight:700;margin-bottom:4px}
+    .timeline-content p{color:rgba(255,255,255,.55);font-size:.8rem;line-height:1.6}
+    .biaya-table{width:100%;border-collapse:collapse;margin-top:8px}
+    .biaya-table th{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;padding:12px 16px;text-align:left}
+    .biaya-table td{padding:12px 16px;font-size:.85rem;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.07)}
+    .biaya-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--gold);font-size:.95rem}
+    .biaya-table .amount{text-align:right;font-weight:600}
+    .ppdb-note{background:rgba(212,160,23,.12);border:1px solid rgba(212,160,23,.3);border-radius:10px;padding:14px 16px;margin-top:16px;font-size:.8rem;color:rgba(255,255,255,.75);line-height:1.6}
+    .ppdb-actions{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
+
+    /* FORM */
+    #form-minat{background:white}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+    .form-card{background:var(--off-white);border:1px solid var(--border);border-radius:20px;padding:36px}
+    .form-card h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;color:var(--navy);margin-bottom:8px}
+    .form-card .sub{font-size:.85rem;color:var(--text-muted);margin-bottom:28px;line-height:1.6}
+    .form-row{display:flex;flex-direction:column;gap:16px}
+    .form-group label{display:block;font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:.9rem;font-family:inherit;background:white;color:var(--text-dark);transition:border-color .2s;outline:none}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy-light)}
+    .form-submit{background:var(--gold);color:var(--navy);padding:15px 28px;border-radius:10px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 20px rgba(212,160,23,.35)}
+    .form-submit:hover{background:#F0C040;transform:translateY(-2px)}
+    .form-note{font-size:.75rem;color:var(--text-muted);text-align:center}
+    .form-info-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px}
+    .form-icon{width:44px;height:44px;border-radius:12px;background:var(--baby-blue);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .form-info-text strong{display:block;font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .form-info-text span{font-size:.82rem;color:var(--text-muted);line-height:1.6}
+    .form-info-text a{color:var(--navy-light);text-decoration:none}
+    .form-info-text a:hover{text-decoration:underline}
+
+    /* BERITA */
+    #berita{background:var(--off-white)}
+    .berita-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+    .berita-card{background:white;border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s}
+    .berita-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+    .berita-img-ph{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+    .bg1{background:linear-gradient(135deg,#E0F2FE,#BAE6FD)}
+    .bg2{background:linear-gradient(135deg,#D1FAE5,#A7F3D0)}
+    .bg3{background:linear-gradient(135deg,#FEF3C7,#FDE68A)}
+    .berita-body{padding:20px}
+    .berita-meta{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .berita-tag{background:var(--baby-blue);color:var(--navy-mid);font-size:.68rem;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:40px}
+    .berita-date{font-size:.72rem;color:var(--text-muted)}
+    .berita-body h3{font-size:.92rem;font-weight:700;color:var(--navy);line-height:1.5;margin-bottom:8px}
+    .berita-body p{font-size:.8rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
+    .berita-link{font-size:.8rem;font-weight:700;color:var(--navy-mid);text-decoration:none}
+
+    /* KONTAK */
+    #kontak{background:white}
+    .kontak-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;margin-top:40px}
+    .kontak-info{display:flex;flex-direction:column;gap:16px}
+    .kontak-card{display:flex;gap:16px;align-items:flex-start;background:var(--off-white);border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+    .kontak-icon{width:44px;height:44px;border-radius:12px;background:var(--baby-blue);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .kontak-card strong{display:block;font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .kontak-card span{font-size:.82rem;color:var(--text-muted);line-height:1.7}
+    .kontak-card a{color:var(--navy-light);text-decoration:none}
+    .kontak-card a:hover{text-decoration:underline}
+    .sosmed-row{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+    .sosmed-btn{background:var(--baby-blue);color:var(--navy-mid);padding:7px 12px;border-radius:8px;font-size:.75rem;font-weight:600;text-decoration:none;transition:all .2s}
+    .sosmed-btn:hover{background:var(--navy);color:white}
+    .map-embed{border-radius:16px;overflow:hidden;border:1px solid var(--border);height:420px}
+    .map-embed iframe{width:100%;height:100%;border:none;display:block}
+
+    /* FOOTER */
+    footer{background:var(--navy);color:rgba(255,255,255,.7);padding:60px 5% 32px}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 48px}
+    .footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+    .footer-logo strong{color:white;font-size:.95rem}
+    .footer-brand p{font-size:.82rem;line-height:1.75;max-width:280px}
+    .footer-arabic{font-family:'Amiri',serif;direction:rtl;font-size:1.2rem;color:var(--gold);margin-top:16px;opacity:.85}
+    .footer-col h4{color:white;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .footer-col ul a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.82rem;transition:color .2s}
+    .footer-col ul a:hover{color:white}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:12px}
+
+    /* WA WIDGET */
+    .wa-widget{position:fixed;bottom:28px;right:28px;z-index:200;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+    .wa-bubble{background:white;border-radius:16px;padding:16px 20px;box-shadow:var(--shadow-lg);max-width:230px;font-size:.8rem;color:var(--text-body);line-height:1.5;border:1px solid var(--border);display:none}
+    .wa-bubble.show{display:block;animation:popIn .3s ease}
+    .wa-bubble strong{display:block;color:var(--navy);margin-bottom:4px}
+    .wa-btn{width:58px;height:58px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);transition:all .25s;color:white}
+    .wa-btn:hover{transform:scale(1.1) translateY(-2px)}
+    .wa-pulse{position:absolute;top:0;right:0;width:16px;height:16px;background:#EF4444;border-radius:50%;border:2px solid white;font-size:.55rem;color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .toast{position:fixed;bottom:100px;right:28px;z-index:300;background:var(--navy);color:white;padding:14px 22px;border-radius:12px;font-size:.85rem;box-shadow:var(--shadow-lg);display:none;align-items:center;gap:10px}
+    .toast.show{display:flex;animation:popIn .3s ease}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes popIn{from{opacity:0;transform:scale(.8) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    .animate-on-scroll{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+    .animate-on-scroll.visible{opacity:1;transform:none}
+
+    @media(max-width:900px){
+      .hero-content,.sambutan-grid,.profil-top,.ppdb-grid,.form-grid,.kontak-grid{grid-template-columns:1fr}
+      .hero-card-wrap{display:none}
+      .keunggulan-grid,.berita-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .sambutan-badge{left:12px}
+      .rutinan-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:580px){
+      section{padding:64px 5%}
+      .keunggulan-grid,.berita-grid,.program-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .hero-btns,.ppdb-actions{flex-direction:column}
+      .btn-primary,.btn-secondary{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-brand">
+    <div class="nav-logo">م</div>
+    <div class="nav-title">
+      <strong>Darul Musthofa</strong>
+      <span>Pondok Pesantren</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#profil">Profil</a></li>
+    <li><a href="#jadwal">Jadwal</a></li>
+    <li><a href="#ppdb">PPDB</a></li>
+    <li><a href="#berita">Berita</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+    <li><a href="#form-minat" class="nav-cta">Daftar Sekarang</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#profil" onclick="closeMobileNav()">Profil &amp; Program</a>
+  <a href="#jadwal" onclick="closeMobileNav()">Jadwal Kegiatan</a>
+  <a href="#ppdb" onclick="closeMobileNav()">Informasi PPDB</a>
+  <a href="#berita" onclick="closeMobileNav()">Berita &amp; Kegiatan</a>
+  <a href="#kontak" onclick="closeMobileNav()">Kontak &amp; Lokasi</a>
+  <a href="#form-minat" onclick="closeMobileNav()" style="background:var(--gold);color:var(--navy);font-weight:700;margin-top:4px;">Daftar Sekarang ✦</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-deco hd1"></div>
+  <div class="hero-deco hd2"></div>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="hero-badge">TA 2026/2027 — Pendaftaran Dibuka</div>
+      <div class="hero-arabic">دار المصطفى للعلوم الإسلامية</div>
+      <h1 class="hero-title">Membentuk Generasi <em>Qur'ani</em>, Berwawasan Global &amp; Berakhlak Mulia.</h1>
+      <p class="hero-desc">Pondok Pesantren Darul Musthofa, Trawas – Mojokerto. Memadukan Tahfidz bersanad, pendidikan formal setara SMP &amp; SMA, dan pembentukan akhlak yang kokoh di bawah asuhan Al Ust Dzulkifli.</p>
+      <div class="hero-btns">
+        <a href="#form-minat" class="btn-primary">✦ Daftar Sekarang</a>
+        <a href="https://drive.google.com/drive/folders/1TB3qS1k6rEGCKorYu3jWDclVky16zXeJ?usp=sharing" target="_blank" class="btn-secondary">⬇ Unduh Brosur</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">30<span>+</span></div><div class="stat-label">Santri Aktif</div></div>
+        <div><div class="stat-num">4<span>+</span></div><div class="stat-label">Tahun Berdiri</div></div>
+        <div><div class="stat-num">6<span></span></div><div class="stat-label">Program Unggulan</div></div>
+      </div>
+    </div>
+    <div class="hero-card-wrap">
+      <div class="hero-card">
+        <div class="hero-card-visual">
+          <div class="hero-card-visual-bg"></div>
+          <div class="hcv-inner"><div class="arabic-large">م</div><div class="arabic-sub">دار المصطفى</div></div>
+        </div>
+        <div class="hero-card-body">
+          <div class="label">Program Unggulan TA 2026/2027</div>
+          <h3>Fokus Pengembangan Santri</h3>
+          <div class="progress-row">
+            <div><div class="progress-label"><span>Tahfidz Al-Qur'an Bersanad</span><span>✦</span></div><div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div></div>
+            <div><div class="progress-label"><span>Madrasah Diniyah</span><span>✦</span></div><div class="progress-bar"><div class="progress-fill" style="width:87%"></div></div></div>
+            <div><div class="progress-label"><span>Ekskul Sunnah Bersanad</span><span>✦</span></div><div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMBUTAN -->
+<section id="sambutan">
+  <div class="container">
+    <div class="sambutan-grid animate-on-scroll">
+      <div class="sambutan-img-wrap">
+        <div class="sambutan-img">
+          <div class="sambutan-img-overlay"></div>
+          <div class="sambutan-img-symbol">م</div>
+        </div>
+        <div class="sambutan-badge"><strong>AL UST DZULKIFLI</strong><span>Pengasuh Pesantren</span></div>
+      </div>
+      <div class="sambutan-content">
+        <div class="section-label">Sambutan Pimpinan</div>
+        <h2 class="section-title">Pesan dari Pengasuh Pondok</h2>
+        <blockquote class="sambutan-quote">من جدّ وجد، ومن زرع حصد</blockquote>
+        <p class="sambutan-text">Barangsiapa yang bersungguh-sungguh, ia akan berhasil. Barangsiapa yang menanam, ia akan menuai. Prinsip inilah yang kami pegang teguh dalam membimbing setiap santri di Darul Musthofa.</p>
+        <p class="sambutan-text">Kami tidak hanya mendidik santri menjadi hafidz dan alim, tetapi juga menjadi manusia yang memiliki kepribadian tangguh, berakhlak mulia, dan mampu berkontribusi nyata bagi umat dan bangsa di bawah sanad keilmuan yang jelas.</p>
+        <div class="sambutan-name"><strong>AL UST DZULKIFLI</strong><span>Pengasuh Pondok Pesantren Darul Musthofa, Trawas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section id="keunggulan">
+  <div class="container">
+    <div class="animate-on-scroll" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Kenapa Memilih Kami</div>
+      <h2 class="section-title" style="text-align:center;margin:0 auto 16px">Keunggulan Darul Musthofa</h2>
+      <p class="section-desc" style="text-align:center;margin:0 auto">Pendidikan Islam terpadu — ilmu agama, ijazah formal, dan pembentukan karakter dalam satu lingkungan yang kondusif.</p>
+    </div>
+    <div class="keunggulan-grid animate-on-scroll">
+      <div class="keunggulan-card"><div class="keunggulan-icon">📖</div><h3>Tahfidz Bersanad</h3><p>Program hafalan Al-Qur'an dengan sanad tersambung untuk santri putra dan putri menggunakan metode Yanbu'a: baca, tulis, dan menghafal.</p></div>
+      <div class="keunggulan-card"><div class="keunggulan-icon">🏫</div><h3>Pendidikan Formal Setara</h3><p>SMPIT (setara SMP) dan SMAIT (setara SMA) membekali santri ijazah resmi sekaligus bekal ilmu agama yang mendalam dan komprehensif.</p></div>
+      <div class="keunggulan-card"><div class="keunggulan-icon">🏹</div><h3>Ekskul Sunnah Bersanad</h3><p>Memanah, berkuda, dan berenang — tiga ekskul sunnah Nabi ﷺ yang diajarkan dengan sanad jelas oleh pembimbing berpengalaman.</p></div>
+      <div class="keunggulan-card"><div class="keunggulan-icon">🔗</div><h3>Sanad Keilmuan Jelas</h3><p>Diasuh oleh Al Ust Dzulkifli. Madrasah Diniyah, Yanbu'a, dan seluruh ilmu yang diajarkan memiliki sanad yang bersambung dan terverifikasi.</p></div>
+      <div class="keunggulan-card"><div class="keunggulan-icon">🌄</div><h3>Lingkungan Asri &amp; Kondusif</h3><p>Berlokasi di kawasan pegunungan Trawas, Mojokerto — suasana tenang, sejuk, dan jauh dari distraksi kota. Ideal untuk menghafal dan belajar.</p></div>
+      <div class="keunggulan-card"><div class="keunggulan-icon">🤲</div><h3>Jadwal Ruhani Terstruktur</h3><p>Qiyamullail, Ratib Haddad, Maulid Nabi, Hadroh Basaudan, dan Mujahadah menjadi rutinitas harian yang membentuk karakter santri.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFIL & PROGRAM -->
+<section id="profil">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <div class="section-label">Profil Pesantren</div>
+      <h2 class="section-title">Program Pendidikan</h2>
+    </div>
+    <div class="profil-top animate-on-scroll">
+      <div>
+        <p style="font-size:.95rem;line-height:1.85;color:var(--text-body);margin-bottom:20px">
+          Pondok Pesantren Darul Musthofa berdiri 4 tahun lalu di Desa Kesiman, Kecamatan Trawas, Kabupaten Mojokerto. Diasuh langsung oleh <strong>Al Ust Dzulkifli</strong>, pesantren ini berkomitmen mencetak generasi Qur'ani dengan sanad keilmuan yang jelas dan karakter Islami yang kuat.
+        </p>
+        <ul class="legalitas-list">
+          <li><span class="check">✓</span> Tahun Ajaran 2026/2027 — Pendaftaran Sedang Dibuka</li>
+          <li><span class="check">✓</span> 30 Santri Aktif — Putra &amp; Putri</li>
+          <li><span class="check">✓</span> Diasuh: Al Ust Dzulkifli</li>
+          <li><span class="check">✓</span> Jln. Singosampe RT.004/002, Dsn. Kesiman, Trawas, Mojokerto 61375</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px">Program Unggulan</p>
+        <div class="program-grid">
+          <div class="program-card"><div class="tag">Formal – SMA</div><h4>SMAIT Darul Musthofa</h4><p>Setara SMA, memadukan kurikulum nasional dengan penguatan tahfidz dan ilmu agama mendalam.</p></div>
+          <div class="program-card"><div class="tag">Formal – SMP</div><h4>SMPIT Darul Musthofa</h4><p>Setara SMP, pondasi ilmu agama dan akademik yang kuat untuk santri usia remaja awal.</p></div>
+          <div class="program-card"><div class="tag">Unggulan</div><h4>Tahfidzul Qur'an Bersanad</h4><p>Hafalan Al-Qur'an dengan sanad untuk santri putra dan putri. Terbimbing dan tersertifikasi.</p></div>
+          <div class="program-card"><div class="tag">Yanbu'a</div><h4>Baca, Tulis &amp; Hafal Al-Qur'an</h4><p>Metode Yanbu'a yang sistematis — efektif untuk pemula hingga yang ingin memperkuat hafalan.</p></div>
+          <div class="program-card"><div class="tag">Diniyah</div><h4>Madrasah Diniyah</h4><p>Kurikulum ilmu agama terstruktur: Fiqih, Aqidah, Akhlak, Tarikh, dan kitab-kitab klasik.</p></div>
+          <div class="program-card"><div class="tag">Ekskul Sunnah</div><h4>Memanah, Berkuda &amp; Berenang</h4><p>Tiga olahraga sunnah Nabi ﷺ yang diajarkan bersanad. Membentuk fisik dan mental tangguh.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JADWAL -->
+<section id="jadwal">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <div class="section-label">Rutinitas Santri</div>
+      <h2 class="section-title">Jadwal Kegiatan</h2>
+      <p class="section-desc">Dari Qiyamullail hingga Mujahadah malam — setiap jam penuh makna dan dibimbing dalam ritme ibadah, belajar, dan pengembangan diri yang seimbang.</p>
+    </div>
+    <div class="jadwal-tabs" style="margin-top:32px">
+      <button class="jadwal-tab active" onclick="switchTab(this,'tab-harian')">📅 Jadwal Harian</button>
+      <button class="jadwal-tab" onclick="switchTab(this,'tab-mingguan')">📆 Kegiatan Mingguan</button>
+    </div>
+    <div class="jadwal-panel active" id="tab-harian">
+      <ul class="jadwal-list">
+        <li class="jadwal-item"><span class="jadwal-time">03.30</span><span class="jadwal-activity">Qiyamullail (Tahajud) &amp; Murojaah</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">04.00</span><span class="jadwal-activity">Do'a Fajar &amp; Sholat Subuh Berjamaah</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">04.30</span><span class="jadwal-activity">Wirdullathif &amp; Sakron</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">05.00</span><span class="jadwal-activity">Tahsin Qiro'ah / Tatbiqul Qiro'ah</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">06.00</span><span class="jadwal-activity">Piket Pagi</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">06.30</span><span class="jadwal-activity">Mandi / Persiapan &amp; Menghafal Setoran</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">07.00</span><span class="jadwal-activity">Sholat Dhuha Berjamaah, Tadarus &amp; Sorogan Pagi</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">07.45</span><span class="jadwal-activity">Makan Pagi</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">08.00</span><span class="jadwal-activity">Madin Mapel I</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">09.00</span><span class="jadwal-activity">Madin Mapel II</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">10.00</span><span class="jadwal-activity">Sekolah Mapel I</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">11.00</span><span class="jadwal-activity">Sekolah Mapel II</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">11.45</span><span class="jadwal-activity">Sholat Dhuhur Berjamaah</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">12.00</span><span class="jadwal-activity">Tadarus Al-Qur'an</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">12.30</span><span class="jadwal-activity">Makan Siang</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">13.00</span><span class="jadwal-activity">Muroja'ah / Menghafal Setoran</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">14.00</span><span class="jadwal-activity">Istirahat Siang</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">14.30</span><span class="jadwal-activity">Maulid, Sholat Ashar Berjamaah &amp; Membaca Al-Waqi'ah</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">15.30</span><span class="jadwal-activity">Tahfidz (Setoran)</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">16.30</span><span class="jadwal-activity">Piket Sore &amp; Mandi</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">16.45</span><span class="jadwal-activity">Rauha (Sorogan)</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">17.15</span><span class="jadwal-activity">Nadhoman &amp; Wirid Al Habib Ja'far bin Syaikhon Assegaf</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">17.30</span><span class="jadwal-activity">Sholat Maghrib Berjamaah</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">18.00</span><span class="jadwal-activity">Wirid Yasin, Al-Waqi'ah, Al-Mulk &amp; Ratib Haddad</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">18.30</span><span class="jadwal-activity">Sholat Isya' Berjamaah &amp; Witir</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">19.00</span><span class="jadwal-activity">Makan Malam</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">19.30</span><span class="jadwal-activity">Murojaah / Takror</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">21.00</span><span class="jadwal-activity">Mutholaah</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">22.00</span><span class="jadwal-activity">Mujahadah (Menghafal / Murojaah / Mutholaah)</span></li>
+        <li class="jadwal-item"><span class="jadwal-time">23.00</span><span class="jadwal-activity">Istirahat Malam</span></li>
+      </ul>
+    </div>
+    <div class="jadwal-panel" id="tab-mingguan">
+      <div class="rutinan-grid">
+        <div class="rutinan-card"><div class="rutinan-day">📅 Selasa</div><div class="rutinan-title">Hadroh Basaudan</div><div class="rutinan-time">16.15 – 17.00</div></div>
+        <div class="rutinan-card"><div class="rutinan-day">📅 Kamis Sore</div><div class="rutinan-title">Pembacaan Yasin, Al-Kahfi &amp; Tahlil</div><div class="rutinan-time">18.15 – 19.00</div></div>
+        <div class="rutinan-card"><div class="rutinan-day">📅 Kamis Malam</div><div class="rutinan-title">Maulid Nabi ﷺ</div><div class="rutinan-time">19.30 – 21.30</div></div>
+        <div class="rutinan-card"><div class="rutinan-day">📅 Sabtu Malam</div><div class="rutinan-title">Maulid Nabi &amp; Muhadhoroh</div><div class="rutinan-time">19.30 – 21.30</div></div>
+        <div class="rutinan-card"><div class="rutinan-day">📅 Ahad Pagi</div><div class="rutinan-title">Tandiful 'Amm (Kerja Bakti Umum)</div><div class="rutinan-time">06.00 – 07.00</div></div>
+        <div class="rutinan-card"><div class="rutinan-day">📅 Ahad</div><div class="rutinan-title">Olahraga</div><div class="rutinan-time">07.00 – 08.00</div></div>
+        <div class="rutinan-card"><div class="rutinan-day">📅 Ahad</div><div class="rutinan-title">Ekskul / Entrepreneur</div><div class="rutinan-time">08.00 – 11.00</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PPDB -->
+<section id="ppdb">
+  <div class="ppdb-geo"></div>
+  <div class="container" style="position:relative;z-index:2">
+    <div class="animate-on-scroll">
+      <div class="section-label">Penerimaan Santri Baru</div>
+      <h2 class="section-title">Informasi PSB &amp; PPDB 2026/2027</h2>
+      <p class="section-desc">Pendaftaran dibuka dua gelombang untuk Pondok Pesantren dan Sekolah Formal. Daftar sekarang dan bergabunglah bersama keluarga besar Darul Musthofa.</p>
+    </div>
+    <div class="gelombang-wrap animate-on-scroll">
+      <div class="gelombang-title">Jadwal Penerimaan</div>
+      <div class="gelombang-cards">
+        <div class="gelombang-card open">
+          <div><div class="gelombang-label">Gelombang I — Pondok Pesantren &amp; Sekolah Formal</div><div class="gelombang-date">16 Januari – 31 Maret 2026</div></div>
+          <span class="gelombang-badge open">Berlangsung</span>
+        </div>
+        <div class="gelombang-card">
+          <div><div class="gelombang-label">Gelombang II — Pondok Pesantren &amp; Sekolah Formal</div><div class="gelombang-date">01 April – 30 Juni 2026</div></div>
+          <span class="gelombang-badge soon">Segera Dibuka</span>
+        </div>
+      </div>
+    </div>
+    <div class="ppdb-grid animate-on-scroll">
+      <div>
+        <p class="alur-title">Alur Pendaftaran</p>
+        <div class="timeline">
+          <div class="timeline-item active">
+            <div class="timeline-left"><div class="timeline-dot">1</div><div class="timeline-line"></div></div>
+            <div class="timeline-content"><h4>Isi Formulir Minat</h4><p>Lengkapi data melalui formulir online di halaman ini atau hubungi WhatsApp admin PPDB kami.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left"><div class="timeline-dot">2</div><div class="timeline-line"></div></div>
+            <div class="timeline-content"><h4>Lengkapi Berkas Pendaftaran</h4><p>Admin mengirimkan berkas lengkap via WhatsApp dalam 1×24 jam setelah formulir diterima.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left"><div class="timeline-dot">3</div><div class="timeline-line"></div></div>
+            <div class="timeline-content"><h4>Tes Seleksi &amp; Wawancara</h4><p>Calon santri mengikuti tes baca Al-Qur'an dan wawancara bersama pengasuh pesantren.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left"><div class="timeline-dot">4</div><div class="timeline-line"></div></div>
+            <div class="timeline-content"><h4>Pengumuman &amp; Daftar Ulang</h4><p>Santri yang diterima dihubungi dan melakukan daftar ulang dengan melunasi biaya pendidikan.</p></div>
+          </div>
+          <div class="timeline-item active">
+            <div class="timeline-left"><div class="timeline-dot">5</div><div class="timeline-line"></div></div>
+            <div class="timeline-content"><h4>Orientasi &amp; Masuk Pesantren</h4><p>Santri baru mengikuti masa orientasi dan resmi menjadi bagian keluarga Darul Musthofa.</p></div>
+          </div>
+        </div>
+        <div class="ppdb-actions">
+          <a href="#form-minat" class="btn-primary">✦ Daftar Sekarang</a>
+          <a href="https://drive.google.com/drive/folders/1TB3qS1k6rEGCKorYu3jWDclVky16zXeJ?usp=sharing" target="_blank" class="btn-secondary">⬇ Unduh Brosur</a>
+        </div>
+      </div>
+      <div>
+        <p class="alur-title">Biaya Pendidikan</p>
+        <table class="biaya-table">
+          <thead><tr><th>Komponen Biaya</th><th style="text-align:right">Nominal</th></tr></thead>
+          <tbody>
+            <tr><td>Biaya Pendaftaran Awal <span style="font-size:.72rem;color:rgba(255,255,255,.4)">(1× saat daftar)</span></td><td class="amount">Rp 2.500.000</td></tr>
+            <tr><td>Biaya Daftar Ulang</td><td class="amount">Rp 500.000</td></tr>
+            <tr><td>Biaya Bulanan <span style="font-size:.72rem;color:rgba(255,255,255,.4)">(*Gratis bila berprestasi)</span></td><td class="amount">Rp 250.000</td></tr>
+          </tbody>
+        </table>
+        <div class="ppdb-note">ℹ <strong>Catatan:</strong> Biaya bulanan <strong>GRATIS</strong> bagi santri berprestasi. Tersedia program keringanan biaya bagi santri dari keluarga yang membutuhkan. Hubungi admin untuk informasi lebih lanjut.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM MINAT -->
+<section id="form-minat">
+  <div class="container">
+    <div class="form-grid animate-on-scroll">
+      <div class="form-card">
+        <h3>Formulir Minat Pendaftaran</h3>
+        <p class="sub">Isi data berikut, tim kami akan segera menghubungi Anda dalam <strong>1×24 jam</strong>.</p>
+        <div class="form-row" id="minat-form">
+          <div class="form-group"><label>Nama Lengkap Calon Santri *</label><input type="text" id="f-nama" placeholder="Contoh: Muhammad Abdullah" /></div>
+          <div class="form-group"><label>Nomor HP / WhatsApp Wali *</label><input type="tel" id="f-hp" placeholder="08xxxxxxxxxx" /></div>
+          <div class="form-group"><label>Kota / Kabupaten Asal *</label><input type="text" id="f-kota" placeholder="Contoh: Sidoarjo, Jawa Timur" /></div>
+          <div class="form-group">
+            <label>Program yang Diminati *</label>
+            <select id="f-program">
+              <option value="">— Pilih Program —</option>
+              <option>SMAIT Darul Musthofa (Setara SMA)</option>
+              <option>SMPIT Darul Musthofa (Setara SMP)</option>
+              <option>Tahfidzul Qur'an Bersanad – Putra</option>
+              <option>Tahfidzul Qur'an Bersanad – Putri</option>
+              <option>Yanbu'a (Baca, Tulis &amp; Hafal Al-Qur'an)</option>
+              <option>Madrasah Diniyah</option>
+              <option>Ekskul Bersanad (Memanah, Berkuda, Berenang)</option>
+              <option>Kombinasi Tahfidz + SMPIT</option>
+              <option>Kombinasi Tahfidz + SMAIT</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Pesan / Pertanyaan (opsional)</label><textarea id="f-pesan" rows="3" placeholder="Tuliskan pertanyaan atau informasi tambahan..."></textarea></div>
+          <button class="form-submit" onclick="submitForm()">Kirim Data Pendaftaran →</button>
+          <p class="form-note">🔒 Data Anda aman dan hanya digunakan untuk keperluan pendaftaran.</p>
+        </div>
+      </div>
+      <div class="form-info">
+        <div class="section-label">Hubungi Kami</div>
+        <h2 class="section-title">Ada Pertanyaan?</h2>
+        <p class="section-desc" style="margin-bottom:28px">Kami siap membantu Anda menemukan program yang tepat untuk buah hati Anda.</p>
+        <div class="form-info-item">
+          <div class="form-icon">📞</div>
+          <div class="form-info-text"><strong>WhatsApp Admin PPDB</strong><span><a href="https://wa.me/6285706464267">0857-0646-4267</a><br><a href="https://wa.me/6289523458260">0895-2345-8260</a><br>Senin–Sabtu, 08.00–17.00 WIB</span></div>
+        </div>
+        <div class="form-info-item">
+          <div class="form-icon">📧</div>
+          <div class="form-info-text"><strong>Email Resmi</strong><span><a href="mailto:darulmusthofatrawas@gmail.com">darulmusthofatrawas@gmail.com</a><br>Balasan dalam 1×24 jam</span></div>
+        </div>
+        <div class="form-info-item">
+          <div class="form-icon">📍</div>
+          <div class="form-info-text"><strong>Alamat Pesantren</strong><span>Jln. Singosampe RT.004/002 Dsn. Kesiman<br>Desa Kesiman, Kec. Trawas<br>Kab. Mojokerto, Jawa Timur 61375</span></div>
+        </div>
+        <div class="form-info-item">
+          <div class="form-icon">🕐</div>
+          <div class="form-info-text"><strong>Jam Kunjungan</strong><span>Setiap hari kecuali Ahad, 08.00–12.00 WIB<br>Wajib konfirmasi terlebih dahulu</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BERITA -->
+<section id="berita">
+  <div class="container">
+    <div class="animate-on-scroll" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
+      <div><div class="section-label">Berita &amp; Kegiatan</div><h2 class="section-title">Aktivitas Terkini Pesantren</h2></div>
+    </div>
+    <div class="berita-grid animate-on-scroll">
+      <div class="berita-card">
+        <div class="berita-img-ph bg1">🕌</div>
+        <div class="berita-body">
+          <div class="berita-meta"><span class="berita-tag">Kajian</span><span class="berita-date">Mei 2025</span></div>
+          <h3>Kajian Rutin: Mendalami Tafsir Al-Qur'an Bersama Pengasuh</h3>
+          <p>Santri antusias mengikuti kajian tafsir yang membahas surat pilihan secara mendalam setiap pekan bersama Al Ust Dzulkifli.</p>
+          <a href="#" class="berita-link">Baca Selengkapnya →</a>
+        </div>
+      </div>
+      <div class="berita-card">
+        <div class="berita-img-ph bg2">🏆</div>
+        <div class="berita-body">
+          <div class="berita-meta"><span class="berita-tag">Prestasi</span><span class="berita-date">Mei 2025</span></div>
+          <h3>Santri Darul Musthofa Mengikuti Lomba MTQ Tingkat Kabupaten</h3>
+          <p>Santri Darul Musthofa secara rutin mengikuti lomba-lomba yang diselenggarakan lembaga keagamaan di Mojokerto.</p>
+          <a href="#" class="berita-link">Baca Selengkapnya →</a>
+        </div>
+      </div>
+      <div class="berita-card">
+        <div class="berita-img-ph bg3">🏹</div>
+        <div class="berita-body">
+          <div class="berita-meta"><span class="berita-tag">Ekskul</span><span class="berita-date">April 2025</span></div>
+          <h3>Latihan Memanah Bersanad: Menghidupkan Sunnah Nabi ﷺ</h3>
+          <p>Ekskul memanah berjalan rutin setiap Ahad, dibimbing oleh instruktur bersanad dan berpengalaman dari komunitas pemanah sunnah.</p>
+          <a href="#" class="berita-link">Baca Selengkapnya →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="container">
+    <div class="animate-on-scroll"><div class="section-label">Kontak &amp; Lokasi</div><h2 class="section-title">Temukan Kami</h2></div>
+    <div class="kontak-grid animate-on-scroll">
+      <div class="kontak-info">
+        <div class="kontak-card">
+          <div class="kontak-icon">📱</div>
+          <div><strong>WhatsApp &amp; Telepon</strong><span><a href="https://wa.me/6285706464267">0857-0646-4267</a> (Admin 1)<br><a href="https://wa.me/6289523458260">0895-2345-8260</a> (Admin 2)</span></div>
+        </div>
+        <div class="kontak-card">
+          <div class="kontak-icon">✉️</div>
+          <div><strong>Email Resmi</strong><span><a href="mailto:darulmusthofatrawas@gmail.com">darulmusthofatrawas@gmail.com</a></span></div>
+        </div>
+        <div class="kontak-card">
+          <div class="kontak-icon">📍</div>
+          <div><strong>Alamat Lengkap</strong><span>Jln. Singosampe RT.004/002 Dsn. Kesiman<br>Desa Kesiman, Kec. Trawas<br>Kab. Mojokerto, Jawa Timur 61375</span></div>
+        </div>
+        <div class="kontak-card">
+          <div class="kontak-icon">🌐</div>
+          <div>
+            <strong>Media Sosial</strong>
+            <div class="sosmed-row">
+              <a href="https://www.youtube.com/@ponpesdalfa" target="_blank" class="sosmed-btn">▶ YT @ponpesdalfa</a>
+              <a href="https://www.instagram.com/ponpesdalfa" target="_blank" class="sosmed-btn">📸 IG @ponpesdalfa</a>
+              <a href="https://www.tiktok.com/@dalfasantri" target="_blank" class="sosmed-btn">🎵 TikTok @dalfasantri</a>
+            </div>
+          </div>
+        </div>
+        <div class="kontak-card">
+          <div class="kontak-icon">🗺️</div>
+          <div><strong>Google Maps</strong><span><a href="https://www.google.com/maps/place/Yayasan+Pondok+Pesantren+Darul+Musthofa+Kesiman/@-7.6628183,112.6055993,17z" target="_blank">Buka di Google Maps &rarr;</a></span></div>
+        </div>
+      </div>
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.4!2d112.603!3d-7.663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7877e8d1ae2017%3A0xc83295570baa3456!2sYayasan%20Pondok%20Pesantren%20Darul%20Musthofa%20Kesiman!5e0!3m2!1sid!2sid!4v1717659000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Pondok Pesantren Darul Musthofa"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo"><div class="nav-logo">م</div><strong>Darul Musthofa</strong></div>
+      <p>Membentuk generasi Qur'ani yang berwawasan global, berakhlak mulia, dan siap berkontribusi bagi umat dan bangsa.</p>
+      <div class="footer-arabic">دار المصطفى للعلوم الإسلامية</div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href="#hero">Beranda</a></li>
+        <li><a href="#sambutan">Sambutan Pimpinan</a></li>
+        <li><a href="#profil">Profil &amp; Program</a></li>
+        <li><a href="#jadwal">Jadwal Kegiatan</a></li>
+        <li><a href="#ppdb">Informasi PPDB</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Program</h4>
+      <ul>
+        <li><a href="#profil">Tahfidz Bersanad</a></li>
+        <li><a href="#profil">SMPIT Darul Musthofa</a></li>
+        <li><a href="#profil">SMAIT Darul Musthofa</a></li>
+        <li><a href="#profil">Yanbu'a Al-Qur'an</a></li>
+        <li><a href="#profil">Madrasah Diniyah</a></li>
+        <li><a href="#profil">Ekskul Sunnah</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informasi</h4>
+      <ul>
+        <li><a href="#berita">Berita &amp; Kegiatan</a></li>
+        <li><a href="#form-minat">Formulir Pendaftaran</a></li>
+        <li><a href="#kontak">Kontak Kami</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1TB3qS1k6rEGCKorYu3jWDclVky16zXeJ?usp=sharing" target="_blank">Unduh Brosur</a></li>
+        <li><a href="mailto:darulmusthofatrawas@gmail.com">Email Kami</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Pondok Pesantren Darul Musthofa. Hak Cipta Dilindungi.</span>
+    <span>Diasuh oleh Al Ust Dzulkifli · Trawas, Mojokerto</span>
+  </div>
+</footer>
+
+<!-- WA FLOATING -->
+<div class="wa-widget">
+  <div class="wa-bubble" id="wa-bubble">
+    <strong>Halo! Ada yang bisa kami bantu? 👋</strong>
+    Tanya seputar pendaftaran atau program pesantren kami.
+  </div>
+  <div style="position:relative;display:inline-block">
+    <button class="wa-btn" onclick="openWA()" aria-label="Chat WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </button>
+    <div class="wa-pulse">1</div>
+  </div>
+</div>
+<div class="toast" id="toast">✓ <span id="toast-msg"></span></div>
+
+<script>
+  // Hamburger
+  const ham = document.getElementById('hamburger'), mob = document.getElementById('mobile-nav');
+  ham.addEventListener('click', () => mob.classList.toggle('open'));
+  function closeMobileNav(){ mob.classList.remove('open'); }
+  document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target)) mob.classList.remove('open'); });
+
+  // Scroll animations
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.12, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('.animate-on-scroll').forEach(el => obs.observe(el));
+
+  // Jadwal tabs
+  function switchTab(btn, id){
+    document.querySelectorAll('.jadwal-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.jadwal-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+
+  // WA
+  function openWA(){ window.open('https://wa.me/6285706464267?text=Assalamu%27alaikum%2C%20saya%20ingin%20menanyakan%20informasi%20pendaftaran%20Pondok%20Pesantren%20Darul%20Musthofa','_blank'); }
+  setTimeout(() => { const b = document.getElementById('wa-bubble'); b.classList.add('show'); setTimeout(() => b.classList.remove('show'), 7000); }, 4000);
+
+  // Toast
+  function showToast(msg){ const t = document.getElementById('toast'); document.getElementById('toast-msg').textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3500); }
+
+  // Form
+  function submitForm(){
+    const nama = document.getElementById('f-nama').value.trim();
+    const hp   = document.getElementById('f-hp').value.trim();
+    const kota = document.getElementById('f-kota').value.trim();
+    const prog = document.getElementById('f-program').value;
+    const pesan = document.getElementById('f-pesan').value.trim();
+    if(!nama||!hp||!kota||!prog){ showToast('Harap lengkapi semua data yang wajib diisi.'); return; }
+    const msg = `Assalamu'alaikum, perkenalkan saya wali dari *${nama}*. Kami dari *${kota}* tertarik dengan program *${prog}*. Nomor HP: ${hp}.${pesan?'\n\nKeterangan: '+pesan:''}\n\nMohon informasi lebih lanjut. Jazakumullahu khairan.`;
+    window.open(`https://wa.me/6285706464267?text=${encodeURIComponent(msg)}`,'_blank');
+    showToast('Data terkirim! Anda diarahkan ke WhatsApp.');
+    ['f-nama','f-hp','f-kota','f-pesan'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
+    document.getElementById('f-program').value='';
+  }
+  document.querySelectorAll('#minat-form input,#minat-form select').forEach(el => el.addEventListener('keydown', e => { if(e.key==='Enter') submitForm(); }));
+
+  // Progress bar
+  const pObs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.querySelectorAll('.progress-fill').forEach(bar => { const w=bar.style.width; bar.style.width='0'; setTimeout(()=>{ bar.style.transition='width 1.2s ease'; bar.style.width=w; },200); }); }), { threshold:.5 });
+  document.querySelectorAll('.hero-card').forEach(el => pObs.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t=document.querySelector(a.getAttribute('href')); if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); } }));
+</script>
+</body>
+</html>
