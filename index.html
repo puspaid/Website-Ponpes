@@ -219,6 +219,23 @@
     .berita-body p{font-size:.8rem;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
     .berita-link{font-size:.8rem;font-weight:700;color:var(--navy-mid);text-decoration:none}
 
+    /* PRODUK */
+    #produk{background:white}
+    .produk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+    .produk-card{background:var(--off-white);border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s;display:flex;flex-direction:column}
+    .produk-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+    .produk-img-ph{width:100%;height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+    .bg4{background:linear-gradient(135deg,#FFE4E6,#FECDD3)}
+    .bg5{background:linear-gradient(135deg,#EDE9FE,#DDD6FE)}
+    .bg6{background:linear-gradient(135deg,#DCFCE7,#BBF7D0)}
+    .produk-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+    .produk-tag{background:var(--baby-blue);color:var(--navy-mid);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 10px;border-radius:40px;display:inline-block;margin-bottom:10px;align-self:flex-start}
+    .produk-body h3{font-size:.92rem;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:8px}
+    .produk-body p{font-size:.8rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px;flex:1}
+    .produk-order{font-size:.8rem;font-weight:700;color:white;background:#25D366;text-decoration:none;padding:9px 14px;border-radius:8px;display:inline-flex;align-items:center;gap:6px;justify-content:center;transition:all .2s}
+    .produk-order:hover{background:#1DA851}
+    .produk-note{margin-top:32px;font-size:.78rem;color:var(--text-muted);text-align:center}
+
     /* KONTAK */
     #kontak{background:white}
     .kontak-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;margin-top:40px}
@@ -267,7 +284,7 @@
     @media(max-width:900px){
       .hero-content,.sambutan-grid,.profil-top,.ppdb-grid,.form-grid,.kontak-grid{grid-template-columns:1fr}
       .hero-card-wrap{display:none}
-      .keunggulan-grid,.berita-grid{grid-template-columns:repeat(2,1fr)}
+      .keunggulan-grid,.berita-grid,.produk-grid{grid-template-columns:repeat(2,1fr)}
       .footer-grid{grid-template-columns:1fr 1fr}
       .nav-links{display:none}
       .hamburger{display:flex}
@@ -276,7 +293,7 @@
     }
     @media(max-width:580px){
       section{padding:64px 5%}
-      .keunggulan-grid,.berita-grid,.program-grid{grid-template-columns:1fr}
+      .keunggulan-grid,.berita-grid,.program-grid,.produk-grid{grid-template-columns:1fr}
       .footer-grid{grid-template-columns:1fr}
       .hero-btns,.ppdb-actions{flex-direction:column}
       .btn-primary,.btn-secondary{justify-content:center}
@@ -298,7 +315,9 @@
     <li><a href="#profil">Profil</a></li>
     <li><a href="#jadwal">Jadwal</a></li>
     <li><a href="#ppdb">PPDB</a></li>
+    <li><a href="#produk">Produk</a></li>
     <li><a href="#berita">Berita</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="#kontak">Kontak</a></li>
     <li><a href="#form-minat" class="nav-cta">Daftar Sekarang</a></li>
   </ul>
@@ -310,7 +329,9 @@
   <a href="#profil" onclick="closeMobileNav()">Profil &amp; Program</a>
   <a href="#jadwal" onclick="closeMobileNav()">Jadwal Kegiatan</a>
   <a href="#ppdb" onclick="closeMobileNav()">Informasi PPDB</a>
+  <a href="#produk" onclick="closeMobileNav()">Produk Pesantren</a>
   <a href="#berita" onclick="closeMobileNav()">Berita &amp; Kegiatan</a>
+  <a href="/blog" onclick="closeMobileNav()">Blog</a>
   <a href="#kontak" onclick="closeMobileNav()">Kontak &amp; Lokasi</a>
   <a href="#form-minat" onclick="closeMobileNav()" style="background:var(--gold);color:var(--navy);font-weight:700;margin-top:4px;">Daftar Sekarang ✦</a>
 </div>
@@ -617,6 +638,72 @@
   </div>
 </section>
 
+<!-- PRODUK -->
+<section id="produk">
+  <div class="container">
+    <div class="animate-on-scroll" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
+      <div><div class="section-label">UMKM Santri</div><h2 class="section-title">Produk Pesantren</h2></div>
+    </div>
+    <div class="produk-grid animate-on-scroll">
+      <div class="produk-card">
+        <div class="produk-img-ph bg1">🍡</div>
+        <div class="produk-body">
+          <span class="produk-tag">Kuliner</span>
+          <h3>Jemblem Singkong Khas Dalfa</h3>
+          <p>Camilan singkong isi gula merah, digoreng renyah dan gurih. Cocok untuk oleh-oleh maupun stok camilan keluarga.</p>
+          <a href="https://wa.me/6285706464267?text=Assalamu%27alaikum%2C%20saya%20ingin%20pesan%20Jemblem%20Singkong%20Dalfa" class="produk-order" target="_blank">💬 Pesan via WhatsApp</a>
+        </div>
+      </div>
+      <div class="produk-card">
+        <div class="produk-img-ph bg2">🧂</div>
+        <div class="produk-body">
+          <span class="produk-tag">Bumbu Dapur</span>
+          <h3>Bumbu Siap Pakai</h3>
+          <p>Racikan bumbu masak praktis, tinggal tumis. Higienis dan diproses langsung oleh unit usaha santri.</p>
+          <a href="https://wa.me/6285706464267?text=Assalamu%27alaikum%2C%20saya%20ingin%20pesan%20Bumbu%20Siap%20Pakai" class="produk-order" target="_blank">💬 Pesan via WhatsApp</a>
+        </div>
+      </div>
+      <div class="produk-card">
+        <div class="produk-img-ph bg3">🌴</div>
+        <div class="produk-body">
+          <span class="produk-tag">Grosir</span>
+          <h3>Aneka Kurma Harga Grosir</h3>
+          <p>Berbagai jenis kurma pilihan dengan harga grosir, cocok untuk kebutuhan pribadi, hampers, maupun jual kembali.</p>
+          <a href="https://wa.me/6285706464267?text=Assalamu%27alaikum%2C%20saya%20ingin%20tanya%20harga%20grosir%20Kurma" class="produk-order" target="_blank">💬 Pesan via WhatsApp</a>
+        </div>
+      </div>
+      <div class="produk-card">
+        <div class="produk-img-ph bg4">🪵</div>
+        <div class="produk-body">
+          <span class="produk-tag">Herbal &amp; Wewangian</span>
+          <h3>Kayu Gaharu</h3>
+          <p>Kayu gaharu asli dengan aroma khas, biasa digunakan untuk pengharum ruangan hingga bahan baku wewangian.</p>
+          <a href="https://wa.me/6285706464267?text=Assalamu%27alaikum%2C%20saya%20ingin%20pesan%20Kayu%20Gaharu" class="produk-order" target="_blank">💬 Pesan via WhatsApp</a>
+        </div>
+      </div>
+      <div class="produk-card">
+        <div class="produk-img-ph bg5">🥟</div>
+        <div class="produk-body">
+          <span class="produk-tag">Frozen Food</span>
+          <h3>Dimsum Frozen Food</h3>
+          <p>Dimsum beku siap kukus/goreng, praktis untuk stok makanan rumah maupun dijual kembali.</p>
+          <a href="https://wa.me/6285706464267?text=Assalamu%27alaikum%2C%20saya%20ingin%20pesan%20Dimsum%20Frozen%20Food" class="produk-order" target="_blank">💬 Pesan via WhatsApp</a>
+        </div>
+      </div>
+      <div class="produk-card">
+        <div class="produk-img-ph bg6">👕</div>
+        <div class="produk-body">
+          <span class="produk-tag">Konveksi</span>
+          <h3>Baju Koko Dalfa Konveksi</h3>
+          <p>Baju koko produksi konveksi santri, nyaman dipakai dan tersedia untuk pemesanan satuan maupun partai.</p>
+          <a href="https://wa.me/6285706464267?text=Assalamu%27alaikum%2C%20saya%20ingin%20pesan%20Baju%20Koko%20Dalfa" class="produk-order" target="_blank">💬 Pesan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <p class="produk-note">Harga dan stok dapat berubah sewaktu-waktu. Hubungi admin WhatsApp untuk info terbaru dan pemesanan.</p>
+  </div>
+</section>
+
 <!-- BERITA -->
 <section id="berita">
   <div class="container">
@@ -630,7 +717,7 @@
           <div class="berita-meta"><span class="berita-tag">Kajian</span><span class="berita-date">Mei 2025</span></div>
           <h3>Kajian Rutin: Mendalami Tafsir Al-Qur'an Bersama Pengasuh</h3>
           <p>Santri antusias mengikuti kajian tafsir yang membahas surat pilihan secara mendalam setiap pekan bersama Al Ust Dzulkifli.</p>
-          <a href="#" class="berita-link">Baca Selengkapnya →</a>
+          <a href="/blog/posts/kajian-rutin-tafsir-al-quran.html" class="berita-link">Baca Selengkapnya →</a>
         </div>
       </div>
       <div class="berita-card">
@@ -639,7 +726,7 @@
           <div class="berita-meta"><span class="berita-tag">Prestasi</span><span class="berita-date">Mei 2025</span></div>
           <h3>Santri Darul Musthofa Mengikuti Lomba MTQ Tingkat Kabupaten</h3>
           <p>Santri Darul Musthofa secara rutin mengikuti lomba-lomba yang diselenggarakan lembaga keagamaan di Mojokerto.</p>
-          <a href="#" class="berita-link">Baca Selengkapnya →</a>
+          <a href="/blog/posts/santri-lomba-mtq-kabupaten.html" class="berita-link">Baca Selengkapnya →</a>
         </div>
       </div>
       <div class="berita-card">
@@ -648,7 +735,7 @@
           <div class="berita-meta"><span class="berita-tag">Ekskul</span><span class="berita-date">April 2025</span></div>
           <h3>Latihan Memanah Bersanad: Menghidupkan Sunnah Nabi ﷺ</h3>
           <p>Ekskul memanah berjalan rutin setiap Ahad, dibimbing oleh instruktur bersanad dan berpengalaman dari komunitas pemanah sunnah.</p>
-          <a href="#" class="berita-link">Baca Selengkapnya →</a>
+          <a href="/blog/posts/latihan-memanah-sunnah-nabi.html" class="berita-link">Baca Selengkapnya →</a>
         </div>
       </div>
     </div>
@@ -728,7 +815,9 @@
     <div class="footer-col">
       <h4>Informasi</h4>
       <ul>
+        <li><a href="#produk">Produk Pesantren</a></li>
         <li><a href="#berita">Berita &amp; Kegiatan</a></li>
+        <li><a href="/blog">Blog</a></li>
         <li><a href="#form-minat">Formulir Pendaftaran</a></li>
         <li><a href="#kontak">Kontak Kami</a></li>
         <li><a href="https://drive.google.com/drive/folders/1TB3qS1k6rEGCKorYu3jWDclVky16zXeJ?usp=sharing" target="_blank">Unduh Brosur</a></li>
