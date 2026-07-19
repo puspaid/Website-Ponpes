@@ -157,9 +157,11 @@
     .gelombang-cards{display:flex;flex-direction:column;gap:12px;max-width:560px}
     .gelombang-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
     .gelombang-card.open{border-color:rgba(212,160,23,.5);background:rgba(212,160,23,.08)}
+    .gelombang-card.closed{opacity:.55}
     .gelombang-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;padding:3px 10px;border-radius:40px}
     .gelombang-badge.open{background:rgba(212,160,23,.25);color:var(--gold)}
     .gelombang-badge.soon{background:rgba(255,255,255,.1);color:rgba(255,255,255,.5)}
+    .gelombang-badge.closed{background:rgba(255,255,255,.08);color:rgba(255,255,255,.4)}
     .gelombang-label{color:white;font-size:.88rem;font-weight:600}
     .gelombang-date{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:3px}
     .ppdb-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px}
@@ -521,18 +523,22 @@
     <div class="animate-on-scroll">
       <div class="section-label">Penerimaan Santri Baru</div>
       <h2 class="section-title">Informasi PSB &amp; PPDB 2026/2027</h2>
-      <p class="section-desc">Pendaftaran dibuka dua gelombang untuk Pondok Pesantren dan Sekolah Formal. Daftar sekarang dan bergabunglah bersama keluarga besar Darul Musthofa.</p>
+      <p class="section-desc">Pendaftaran dibuka tiga gelombang untuk Pondok Pesantren dan Sekolah Formal. Daftar sekarang dan bergabunglah bersama keluarga besar Darul Musthofa.</p>
     </div>
     <div class="gelombang-wrap animate-on-scroll">
       <div class="gelombang-title">Jadwal Penerimaan</div>
       <div class="gelombang-cards">
-        <div class="gelombang-card open">
+        <div class="gelombang-card closed">
           <div><div class="gelombang-label">Gelombang I — Pondok Pesantren &amp; Sekolah Formal</div><div class="gelombang-date">16 Januari – 31 Maret 2026</div></div>
-          <span class="gelombang-badge open">Berlangsung</span>
+          <span class="gelombang-badge closed">Ditutup</span>
         </div>
-        <div class="gelombang-card">
+        <div class="gelombang-card closed">
           <div><div class="gelombang-label">Gelombang II — Pondok Pesantren &amp; Sekolah Formal</div><div class="gelombang-date">01 April – 30 Juni 2026</div></div>
-          <span class="gelombang-badge soon">Segera Dibuka</span>
+          <span class="gelombang-badge closed">Ditutup</span>
+        </div>
+        <div class="gelombang-card open">
+          <div><div class="gelombang-label">Gelombang III — Pondok Pesantren &amp; Sekolah Formal</div><div class="gelombang-date">01 Juli – 30 September 2026</div></div>
+          <span class="gelombang-badge open">Berlangsung</span>
         </div>
       </div>
     </div>
